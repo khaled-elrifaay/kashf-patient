@@ -1,0 +1,42 @@
+<ion-view title="my request" id="confirmation">
+<!--    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="doctorCallList"  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>-->
+  <!--</ion-nav-buttons>-->
+    <ion-content padding="true" class="req-doc-confirm" >
+        <div>DR. {{doctorName}}</div>
+        <img src="{{image}}" class="rounded-img"/>
+        <div style="text-align: left">
+             <div  class="pullets">Grade: <span class="info">{{grade}}</span></div>
+             <div  class="pullets">Specialization: <span class="info">{{spe_name}}</span></div>
+             <div  class="pullets">Gender: <span class="info">{{gender}}</span></div>
+             <div  class="pullets">Rate: <span class="doctor-rating"><span class="info"><ionic-ratings rating="item.rating" ratingsobj='ratingsObject' max="5"></ionic-ratings></span></div>
+             <div  class="pullets">Fees: <span class="info">{{fees}}</span></div>
+             <div  class="pullets">Request Date : <span class="info">{{request_time}}</span></div>
+            <div class="pullets">payment: 
+<!--            <label class="radio-inline info">
+                <input type="radio" name="payment" ng-model="payment" ng-value="'1'" class="radio" selected checked>Cash
+            </label>-->
+            <label class="radio-inline info">
+                <input type="radio" name="payment" ng-model="payment" ng-value="'2'" class="radio" selected checked>Credit card
+            </label></div>
+            <!--<div class="pullets">Notes</div>-->
+
+<!--            <div> 
+                <textarea ng-model="obj.notes" name="notes"   class="text-area">
+                </textarea>        </div>-->
+        </div>
+        <div class="pullets">Your Call will be handled in 5 Minutes</div>
+
+        <br>
+        
+
+    </ion-content>
+  <div class="bar bar-footer">
+      <button class="button button-assertive danger" color="danger" style="width: 45%" ng-click="cancel()" >REJECT</button>
+        
+        <button class="button button-balanced success" style="width: 45%" ng-click="confirm(obj)" >CONFIRM CALL</button>
+  </div>
+</ion-view>

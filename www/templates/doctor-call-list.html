@@ -1,0 +1,72 @@
+<ion-view title="Doctors list" id="page16" cache-view="false">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="specializationCall" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content  class="has-header">
+       <div class="item header header-list docto-list-spec" >
+            {{MinorName}}
+        </div>
+        <ion-list>
+            
+            <ion-item  ng-repeat="item in doctor_list" class="list_item" ng-click="confirm('{{item.first_name}}','{{item.last_name}}',{{item.id}},{{item.callFees}},'{{item.grade}}','{{item.spe_name}}',{{item.rating}},'{{item.gender}}','{{item.photo}}')">
+                <!--<div style="float: left;margin-right: 5px"> <img style="width:100px;height:100px;padding-bottom: 10px" src="../img/Doctor_icon_2.png"></div>
+               -->
+                
+                                <div style="float: left;margin-right: 5px"> <img style="width:90px;height:90px;padding-bottom: 10px" src="{{URL+item.photo}}"></div>
+
+                
+                <div>
+                    <div  style="overflow: hidden;white-space: initial">
+                        <div  class="doctor-name">DR. {{item.first_name}} &nbsp;{{item.last_name}}</div><br>
+                        <div  class="doctor-fess" >Fees: {{item.callFees}}LE for 5 minutes call</div>
+                    </div>
+                    
+                    <div  class="doctor-title" style="white-space: initial">{{item.grade}} IN {{MajorName}} {{MinorName}}</div>
+<!--                     <div ng-if="item.hospital!=''"> <img style="width:90px;height:90px;padding-bottom: 10px" src="{{URL}}{{item.hospital}}"></div> -->
+                    <div style="overflow: hidden;margin-top: 7px;">
+                        <div class="doctor-rating" style="float: left;"><div  class="doctor-rate">Rate:</div> <ionic-ratings style="float: left;" rating="item.rating" ratingsobj='ratingsObject' max="5"></ionic-ratings></div><br>
+                    </div>                
+            </ion-item>
+        </ion-list>
+        <div id="confirmdialog" title="confirmation">
+            
+        </div>
+    </ion-content>
+</ion-view>
+<style>
+ .rBtns {
+            width: 100%;
+            padding-bottom: 10px;
+            text-align: center;
+            
+        }
+
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+   
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size: 109%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+    &.btnSecondary {
+        background-color: #ffffff;
+        color: #1F7EAD;
+    }
+    &.btnPrimary {
+        color: #fff;
+        background: #36af55;
+        background: -moz-linear-gradient(55deg, #36af55 26%, #36af55 26%, #1e7cb0 100%);
+        background: -webkit-linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        background: linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36af55', endColorstr='#1e7cb0',GradientType=1 );
+    }
+}
+
+</style>

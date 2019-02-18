@@ -1,0 +1,19 @@
+<ion-view title="Pay Visit" id="confirmation" hide-back-button="true" cache-view="false">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content padding="true" class="req-doc-confirm"  >
+        <div ng-if="data.message.doctor_syndicate_number!= ''"><p>Please review the doctor's syndicate registration identity card before starting the visit" +  "the syndicate registration number of your doctor is {{doctor_syndicate_number}} </p></div>
+        <p>The doctor you chose accepted your visit request the Visit fees are {{fees}}</p>
+         <div class="list" >
+            <p>Please enter your cvv (3 digit number on the back of your credit card) to pay  </p>
+             <form name="payVisitForm">
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">CVV</span>
+                  <input type="number" name="cvv" placeholder="CVV" ng-model="cvv" ng-minlength="3" ng-maxlength="3" required>
+                </label>
+                
+                  <button   class="button button-positive success" ng-click="pay(cvv)"  ng-disabled="payVisitForm.$invalid">PAY</button>
+             </form>
+        </div>
+    </ion-content>
+</ion-view>

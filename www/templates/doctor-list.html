@@ -1,0 +1,44 @@
+<ion-view title="Doctors list" id="page16" cache-view="false">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="specialization" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content  class="has-header">
+       <div class="item header header-list docto-list-spec" >
+            {{MinorName}}
+        </div>
+        <ion-list>
+            
+            <ion-item  ng-repeat="item in doctor_list" class="list_item" ng-click="confirm('{{item.first_name}}','{{item.last_name}}',{{item.id}},{{item.rate}},'{{item.grade}}','{{item.spe_name}}',{{item.rating}},'{{item.gender}}','{{item.photo}}')">
+                <!--<div style="float: left;margin-right: 5px"> <img style="width:100px;height:100px;padding-bottom: 10px" src="../img/Doctor_icon_2.png"></div>
+               -->
+                                
+                                <div style="float: left;margin-right: 5px"> <img style="width:90px;height:90px;padding-bottom: 10px" src="{{URL+item.photo}}"></div>
+
+                
+                <div>
+                    <div  style="overflow: hidden;white-space: initial">
+                        <div  class="doctor-name">DR. {{item.first_name}} &nbsp;{{item.last_name}}</div><br>
+                        <div  class="doctor-fess" >Fees: {{item.rate}}LE</div>
+                    </div>
+
+                    <div  class="doctor-title" style="white-space: initial">{{item.grade}} IN {{MajorName}} {{MinorName}}</div>
+               <!--      <div ng-if="item.hospital!=''"> <img style="width:90px;height:90px;padding-bottom: 10px" src="{{URL}}{{item.hospital}}"></div> -->
+                    <div style="overflow: hidden;margin-top: 7px;">
+                        <div class="doctor-rating" style="float: left;"><div  class="doctor-rate">Rate:</div> <ionic-ratings style="float: left;" rating="item.rating" ratingsobj='ratingsObject' max="5"></ionic-ratings></div><br>
+                        <div  class="doctor-distance" style="float: left;">Doctor is {{distanc}}km away</div>
+                    </div>
+                </div>
+                
+            </ion-item>
+        </ion-list>
+<!--        <ngDialog id ='confirmNgDialog'>
+            
+            </ngDialog>-->
+        <div id="confirmdialog" title="confirmation">
+            
+        </div>
+    </ion-content>
+</ion-view>

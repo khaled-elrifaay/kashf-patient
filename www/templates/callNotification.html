@@ -1,0 +1,111 @@
+<!-- <ion-view title="REQUEST CAll" id="confirmation" hide-back-button="true">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content padding="true" class="req-doc-confirm"  >
+        <div>{{call.message.NotificationTitle}}</div>
+       
+
+
+        <div style="text-align: left">
+            <div  class="pullets">Doctor Name: <span class="info">{{call.message.doctor_name}}</span></div>
+            <div  class="pullets">Call Fees: <span class="info">{{call.message.doctor_rate}}</span></div>
+            <div  ng-if="callCenterNumber"   class="pullets">Message: <span class="info">{{call.message.NotificationMessage}}</span></div>
+            <div  ng-if="notPayMessage"   class="pullets">Message: <span class="info">The transaction was not successful. Check your primary credit card. </span></div>
+             
+
+        </div>
+       
+        <div class="list" ng-if="cvvNumber">
+            <p>Please enter your cvv (3 digit number on the back of your credit card) </p>
+             <form name="payForm">
+                <label class="item item-input item-floating-label">
+                  <span class="input-label">CVV</span>
+                  <input type="number" name="cvv" placeholder="CVV" ng-model="cvv" ng-minlength="3" ng-maxlength="3" required>
+                </label>
+                
+                  <button ng-if="payButton"  class="button button-positive success" ng-click="pay(cvv)"ng-disabled="payForm.$invalid" >PAY</button>
+             </form>
+        </div>
+       
+        <button ng-if="okButton"  class="button button-positive success" ng-click="backToHome()" >OK</button>
+       
+
+    </ion-content>
+</ion-view> -->
+
+<ion-view title="Request Call" id="confirmation" hide-back-button="true">
+  <ion-content padding>
+    <h3>{{call_type}}</h3>
+
+ <!--     <h3>{{call.message.NotificationTitle}}</h3>
+ -->    <div ng-if="offer" >
+    <ion-item>
+         <div  class="docname">Doctor Name: <h2 class="in">{{doc}}</h2></div>
+         <div  class="docfees">Call Fees:   <h2 class="inf">free call</h2></div>     
+    </ion-item>
+      <h4 class="callcenterMsg">{{message}}</h4>
+      <button class="ok" ng-click="backToHome()" ion-button>OK</button>
+    </div>
+    <div ng-if="noOffer">
+    <ion-item>
+         <div  class="docname">Doctor Name: <h2 class="in">{{doc}}</h2></div>
+         <div  class="docfees">Call   Fees:   <h2 class="inf">{{fees}}</h2></div>     
+    </ion-item>
+      <h4 class="cvv">Please enter your cvv (3 digit number on the back of your credit card)</h4>
+            <form name="payForm">
+                <ion-list>
+
+                  <ion-item style="display:-webkit-box; ">
+                    <ion-label fixed>CVV</ion-label>
+                    <input type="number" name="cvv" ng-model="cvv" required></input>
+
+                                      <br>
+                 <button class="button button-positive success" "ng-disabled="payForm.$invalid" ng-click="pay(cvv)" >PAY</button>
+                  </ion-item>
+
+
+                </ion-list>
+            </form>
+    </div>
+  </ion-content>
+</ion-view>
+
+<style>
+h3, .h3 {
+    font-size: 22px;
+    text-align: center;
+    padding-top: 10px;
+}
+.item h2 {
+    margin: 0 0 2px 0;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20%;
+}
+.docname {
+    display: -webkit-box;
+}
+.docfees {
+    display: -webkit-box;
+}
+h4.cvv {
+    padding: 6px 0px 8px 22px;
+}
+.button.button-positive {
+       margin-left: -139px;
+    margin-top: 25px;
+}
+h4.callcenterMsg.ng-binding {
+    padding: 4px 33px 8px 32px;
+}
+h2.inf {
+    margin-left: 44px;
+}
+.ok {
+    margin-left: 45%;
+    background-color: #ff7b00;
+    height: 50px;
+    width: 55px;
+    color: white;
+}
+</style>

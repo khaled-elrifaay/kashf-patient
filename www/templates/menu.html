@@ -1,0 +1,85 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<style>
+    .opend {
+        display: block;
+        z-index: 999;
+    }
+    .closed {
+        display: none;
+        z-index: -999;
+    }
+</style>
+
+<ion-side-menus delegate-handle="sideMenu" class="menuclass" >
+    <ion-side-menu-content enable-menu-with-back-views="false" 
+                           drag-content="true" on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+        <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+
+            <ion-nav-buttons side="left"  ng-hide="!enl" id="side-menu-map" >
+                <button class="button button-icon button-clear ion-navicon ng-hide"  id="side-menu-map" menu-toggle="left" ng-hide="!enl" ng-click="toggelmenu()"></button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right"  ng-hide="!arl" id="side-menu-map" >
+                <button class="button button-icon button-clear ion-navicon ng-hide" menu-toggle="right" ng-hide="!arl" id="side-menu-map" ng-click="toggelmenu()"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu21"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" s ng-if="enl" id="side-menu21" ng-style="menuopened" >
+       <!-- <ion-header-bar class="bar-stable odd" style="">
+
+            <div class="title odd"></div>
+        </ion-header-bar> -->
+        <ion-content padding="false" class="side-menu-left" style="z-index: 999;">
+            <ion-list class='menu-content'>
+                <ion-item menu-toggle="left"  class='odd' style="color:#000 !important;background-color: #f5f5f5 !important;">
+                    <table class="menu-item"><tr><td style="vertical-align: middle">
+                                <img ng-src="img/{{(gender == 1)?'MaleaAvatar.png':'FemaleAvatar.png'}}" class="rounded-img"/></td><td style="vertical-align: middle">{{mainName}}</td></tr>
+                    </table>
+                </ion-item>
+                <ion-item ui-sref="AddFamilyMember" menu-toggle="left" style="color:#fff !important;background-color: #ff7b00 !important;"><div class="menu-item" style="color:#fff !important;background-color: #ff7b00 !important;"><li class="ion-ios-plus-outline menu-icons" style="color:#fff !important;background-color: #ff7b00 !important;"></li>Add Family Member</div></ion-item>
+                <ion-item ui-sref="payment" menu-toggle="left"  class='odd' >
+                    <div class="menu-item"><li class="ion-cash menu-icons"></li>Payments</div>
+                </ion-item>
+                <ion-item ui-sref="visitsHistory" menu-toggle="left"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>Visits' History</div>
+                </ion-item>
+                <ion-item ui-sref="callsHistory" menu-toggle="left"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>Calls' History</div>
+                </ion-item>
+                <ion-item ui-sref="help" menu-toggle="left"  class='odd'><div class="menu-item"><li class="ion-help-buoy menu-icons"></li>Help</div></ion-item>
+                <ion-item ui-sref="notifications" menu-toggle="left"  class='even'><div class="menu-item"><li class="ion-ios-bell menu-icons"></li>Notifications</div></ion-item>
+                <ion-item ui-sref="settings" menu-toggle="left"  class='menu-settings' style="color:#fff !important;background-color: #0087bd !important;"><div class="menu-item"  style="color:#fff !important;background-color: #0087bd !important;"><li class="ion-gear-b menu-icons"></li>Settings</div></ion-item>
+                <ion-item ng-click="signOut()" menu-toggle="left"  class='menu-settings' style="color:#fff !important;background-color: #e32417 !important;"><div class="menu-item" style="color:#fff !important;background-color: #e32417 !important;"><li class="ion-android-exit menu-icons"  style="color:#fff !important;background-color: #e32417 !important;"></li>Sign Out Me</div></ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+    <ion-side-menu side="right" ng-if="arl" id="side-menu21" ng-style="menuopened" >
+       <!-- <ion-header-bar class="bar-stable odd" style="">
+
+            <div class="title odd"></div>
+        </ion-header-bar> -->
+        <ion-content padding="false" class="side-menu-right right_menu" style="z-index: 999;">
+            <ion-list class='menu-content'>
+                <ion-item menu-toggle="right"  class='odd' style="color:#000 !important;background-color: #f5f5f5 !important;">
+                    <table class="menu-item"><tr><td style="vertical-align: middle">
+                                <img ng-src="img/{{(gender == 1)?'MaleaAvatar.png':'FemaleAvatar.png'}}" class="rounded-img"/></td><td style="vertical-align: middle">{{mainName}}</td></tr>
+                    </table>
+                </ion-item>
+                <ion-item ui-sref="AddFamilyMember" menu-toggle="right" style="color:#fff !important;background-color: #ff7b00 !important;"><div class="menu-item" style="color:#fff !important;background-color: #ff7b00 !important;"><li class="ion-ios-plus-outline menu-icons" style="color:#fff !important;background-color: #ff7b00 !important;"></li>اضف فرد جديد</div></ion-item>
+                <ion-item ui-sref="payment" menu-toggle="right"  class='odd' >
+                    <div class="menu-item"><li class="ion-cash menu-icons"></li>الدفع</div>
+                </ion-item>
+                <ion-item ui-sref="visitsHistory" menu-toggle="right"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>ارشيف الزيارات</div>
+                </ion-item>
+                <ion-item ui-sref="callsHistory" menu-toggle="right"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>ارشيف المكالمات</div>
+                </ion-item>
+                <ion-item ui-sref="help" menu-toggle="right"  class='odd'><div class="menu-item"><li class="ion-help-buoy menu-icons"></li>المساعدة</div></ion-item>
+                <ion-item ui-sref="notifications" menu-toggle="right"  class='even'><div class="menu-item"><li class="ion-ios-bell menu-icons"></li>إخطارات</div></ion-item>
+                <ion-item ui-sref="settings" menu-toggle="right"  class='menu-settings' style="color:#fff !important;background-color: #0087bd !important;"><div class="menu-item"  style="color:#fff !important;background-color: #0087bd !important;"><li class="ion-gear-b menu-icons"></li>اعدادات</div></ion-item>
+                <ion-item ng-click="signOut()" menu-toggle="right"  class='menu-settings' style="color:#fff !important;background-color: #e32417 !important;"><div class="menu-item" style="color:#fff !important;background-color: #e32417 !important;"><li class="ion-android-exit menu-icons"  style="color:#fff !important;background-color: #e32417 !important;"></li>خروج</div></ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

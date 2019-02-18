@@ -1,0 +1,61 @@
+<ion-view title="my request" id="confirmation">
+<!--    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="doctorList"  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>-->
+    <ion-content padding="true" class="req-doc-confirm" >
+        <div>DR. {{doctorName}}</div>
+        <img src="{{image}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+             <div  class="pullets">Grade: <span class="info">{{grade}}</span></div>
+             <div  class="pullets">Specialization: <span class="info">{{spe_name}}</span></div>
+             <div  class="pullets">Gender: <span class="info">{{gender}}</span></div>
+             <div  class="pullets">Rate: <span class="doctor-rating"><span class="info"><ionic-ratings rating="item.rating" ratingsobj='ratingsObject' max="5"></ionic-ratings></span></div>
+             <div  class="pullets">distance: <span class="info">{{distanc}} km away</span></div>
+             <div  class="pullets">Fees: <span class="info">{{fees}}</span></div>
+             <div  class="pullets">Request Date : <span class="info">{{request_time}}</span></div>
+            <div class="pullets">payment: 
+            <label class="radio-inline info">
+                <input type="radio" name="payment" ng-model="payment" ng-value="'1'" class="radio" ng-click="allowConfirm()" >Cash
+            </label>
+            <label class="radio-inline info">
+                <input type="radio" name="payment" ng-model="payment" ng-value="'2'" class="radio" ng-click="checkCard()">Credit card
+            </label></div>
+            <!--
+            Cash<input type="radio" name="payment" ng-model="payment" ng-value="'1'"/>   Credit car<input type="radio" name="payment" ng-model="payment" ng-value="'1'"/></div>
+         <div class="list">    
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Payment</span>
+                    <div class="row">
+                        <div class="col">                            
+                            <ion-radio name="payment" class="col" ng-model="payment" ng-value="'1'" required >Cash</ion-radio>
+                        </div>
+                      <div class="col">
+                            <ion-radio name="payment" class="col" ng-model="payment" ng-value="'2'" required>Credit card</ion-radio>
+                        </div>
+                    </div>
+                </label>
+            </div>-->
+            <div class="pullets">Notes</div>
+
+            <div> 
+                <textarea ng-model="obj.notes" name="notes"   class="text-area">
+                </textarea>        </div>
+        </div>
+        <div class="pullets">This Doctor is {{distanc}}km away</div>
+        <div class="pullets" ng-show="gender_note">The doctor may bring an assistant with her in the home visit</div>
+
+        <br>
+        
+
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-assertive danger " ng-click="cancel()" style="width: 45%">REJECT</button>
+        
+        <button ng-disabled="disableCon"  class="button button-balanced success " ng-click="confirm(obj,payment)"  style="width: 45%">CONFIRM Request</button>
+    </div>
+</ion-view>

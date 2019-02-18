@@ -1,0 +1,242 @@
+<ion-view title="{{'Doctor Search' | translate}}" id="page5">
+   <ion-nav-buttons side="left">
+    <button  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="has-header container">
+<!-- <center>
+        <div style="text-align: left;width:90%;min-width: 90%;max-width: 90%;color:#00497d">
+
+            FOR<br>
+        </div>
+</center>
+        <div class="styledselectionclasic">
+            <select ng-model="mySelect" class="styledselectionclasic" ng-change="pidFn(mySelect)" id="pid">
+                <option  ng-repeat="option in patientsList" value="{{option.main.id}}"   >{{option.main.name}}</option>
+            </select>
+        </div> -->
+        <center>
+            <div style="width:90%;min-width: 90%;max-width: 90%;color:#00497d" class="small-title">
+                 {{"FOR" |translate}}
+            </div>
+        </center>
+        <div class="styledselectionclasic">
+            <select class="styledselectionclasic" onchange="pidFn()" id="pid">
+                <option  ng-repeat="option in patientsList" value="{{option.main.id}}">{{option.main.name}}</option>
+            </select>
+        </div>
+                <label class="item item-input">
+                    <input type="text" placeholder="{{'Doctor Name' |translate}}" name="doctor_name" ng-model="params.name">
+                </label>
+<br>
+<div style="width:100%;min-width: 90%;max-width:100%;color:#00497d" class="small-title">
+        {{"Hospital Name :" |translate}}
+            <label class="item item-input">
+                    <select style="width: 100%;margin-left: -6px;" name="hospital" ng-model="params.hospital">
+                        <option ng-repeat="item in Hospital" value="{{item.id}}">
+                            {{item.name}}
+                        </option>
+                    </select>
+         </label>
+        </div>
+
+<div style="width:100%;min-width: 90%;max-width: 100%;color:#00497d" class="small-title">
+        {{"Clinic Area :" |translate}}
+            <label class="item item-input">
+                    <select style="width: 100%;margin-left: -6px;" name="clinic" ng-model="params.clinic">
+                        <option ng-repeat="item in clinic" value="{{item.id}}">
+                            {{item.name_en}}
+                        </option>
+                    </select>
+         </label>
+        </div>
+      <div style=";width:90%;min-width: 90%;max-width: 100%;color:#00497d" class="small-title">
+                    
+                    {{"Spectiality Grade :" |translate}}<br>
+      </div></center>
+
+         <label class="item item-input">
+                    <select style="width: 100%;margin-left: -6px;" name="grade" ng-model="params.grade">
+                        <option ng-repeat="item in grade" value="{{item.id}}">
+                            {{item.grade_name}}
+                        </option>
+                    </select>
+         </label>
+        </div>
+
+
+        <br>
+    <ion-list>
+            <div ng-repeat="group in specialization" style="width:100%;max-width: 100%;overflow: hidden;border-bottom: solid 1px #f5f5f5;border-bottom-width: 100%" >
+                <ion-item  ng-class-odd="'specsmain specsodd'" ng-class-even="'specsmain specseven'"
+                           ng-click="toggleGroup(group)"
+                           ng-class="{active: isGroupShown(group)}" style="border-bottom: solid 3px #f5f5f5;">
+                    <table style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;">
+                        <tr>
+                            <td style="vertical-align: middle;max-width:70%;width: 70%;overflow: hidden" class="spe_item">
+                                <div style="overflow: hidden;flex: 0 1 auto;">
+                                    &nbsp;{{group.name}}
+                                </div>
+                            </td>
+                            <td style="vertical-align: middle;flex: 0 1 auto;overflow: hidden" class="spe_icon">
+                                <div>
+                                    <i style="" class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-right'" ng-if="en_user_lang">
+                                        
+                                    </i>
+                                    <i style="" class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-left'" ng-if="ar_user_lang">
+                                        
+                                    </i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-item>
+                <ion-item class="item-accordion"
+                          ng-repeat="item in group.min"
+                          ng-show="isGroupShown(group)" ng-click="specFn(item.id,group.name,item.name)" style="background-color: #f0f0f0;border-bottom: solid 3px #f5f5f5;">
+                    
+                    <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                            <td style="text-align: left;vertical-align: middle;flex: 0 1 auto;overflow: hidden;min-width: 20%"></td>
+                        <td style="text-align: left;vertical-align: middle;max-width:70%;width: 70%;overflow: hidden;min-width: 70%"><div style="flex: 0 1 auto;overflow: hidden;">{{item.name}}</div></td>
+                    <td style="text-align:right;vertical-align: middle;flex: 0 1 auto;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon" ng-class="item.id == spec ? 'ion-checkmark' : ''"></i></td>
+                        </tr></table>
+                </ion-item>
+            </div>
+        </ion-list>
+
+
+        
+
+  <button id="confirmation-button"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-disabled="confirmationForm.$invalid" ng-click="search(params)">{{"Submit" |translate}}</button>
+<div class="items-view"  ng-repeat="item in doctor_list">
+  <div class="single-item">
+    <div class="itemHolder">
+     <img style="width:90px;height:90px;padding-bottom: 10px" ng-src="{{(item.photo == '')? 'img/Doctor_icon_2.png': URL+item.photo}}">
+      <div class="controls">
+
+      <div class="itemText">
+        <div class="itemName">DR. {{item.first_name}} &nbsp;{{item.last_name}}</div>
+        <div class="itemName"> <span class="rate">{{"Home fees" | translate}} :</span> {{item.rate}} LE</div>
+        <div class="itemName"> <span class="rate">{{"Call fees :" |translate}}</span> {{item.call_fees}} LE</div>
+        <div class="itemName"> <span class="rate">{{"Clinic fees :" | translate}}</span> {{item.clinic_fees}} LE</div>
+        <div class="itemName"> <span class="rate">{{"Hospital name :" | translate}}</span> {{item.hospital}}</div>
+        <div class="itemName"> <span class="rate">{{"Grade :"  | translate}}</span> {{item.grade}}</div>
+ 
+
+      </div>
+
+         <div  class="rBtns">
+         <button id="button1"  class="btn1"
+          ng-click="confirmHome('{{item.first_name}}','{{item.last_name}}',{{item.id}},{{item.rate}},'{{item.grade}}','{{item.specialization}}',{{item.review}},'{{item.photo}}',{{item.status}})" > {{"Home Visit" |translate}}  </button>
+          <button id="button1"  class="btn1"
+          ng-click="confirmCall('{{item.first_name}}','{{item.last_name}}',{{item.call_fees}},{{item.id}},{{item.rate}},'{{item.grade}}','{{item.specialization}}',{{item.review}},'{{item.photo}}',{{item.call_status}})" > {{"Call Doctor" |translate}} </button>
+         <button id="but"  class="rev"  ><a href="tel:+20233335530" >{{"Clinic" |translate}} </a></button>
+        </div>
+    </div>
+  </div>
+</div>
+    
+    </ion-content>
+</ion-view>
+
+
+<style>
+.myImgx{
+        margin-left: 5%;
+}
+.itemText {
+    margin-left: 75px;
+    margin-top: -90px;
+    padding-bottom: 28px;
+    padding-left: 22px;
+}
+.itemName.ng-binding {
+    text-align: center;
+    font-family: fantasy;
+    color: #ff7b00;
+}
+   .rBtns {
+            width: 100%;
+            padding-bottom: 10px;
+            text-align: center;
+            
+        }
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 160%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+}
+button#button1 {
+    display: inline-block;
+    padding: 15px 15px;
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size: 75%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+}
+button#but {
+    padding-top: 10px;
+    padding-bottom: 13px;
+}
+.rev {
+    display: inline-block;
+    padding: 9px 11px;
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size: 66%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+   
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size:  87%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+    &.btnSecondary {
+        background-color: #ffffff;
+        color: #1F7EAD;
+    }
+    &.btnPrimary {
+        color: #fff;
+        background: #36af55;
+        background: -moz-linear-gradient(55deg, #36af55 26%, #36af55 26%, #1e7cb0 100%);
+        background: -webkit-linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        background: linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36af55', endColorstr='#1e7cb0',GradientType=1 );
+    }
+}
+.itemHolder {
+    background-color: #e4dede;
+    border: outset;
+}
+    .specsmain {
+        color:#6e6e6e;
+        border-bottom: solid 1px #e6e6e6;
+    }
+    .specssub{
+        color:#737373;
+    }
+    .specsodd {
+        background-color: #dedede;
+    }
+
+    .specseven {
+        background-color: #e6e6e6;
+    }
+
+
+</style>

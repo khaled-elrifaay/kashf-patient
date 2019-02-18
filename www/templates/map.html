@@ -1,0 +1,65 @@
+<ion-view title="" id="page4" style="background-color: transparent !important;" class="mapview" >
+    <ion-nav-title>
+         <img src="img/Home.png" alt="logo" height="20px">
+    </ion-nav-title>
+    <ion-content class="has-header ">
+        <div style="width:100%;height:85%;background-color: transparent !important;" id="map_canvas"></div>
+   <!--      <div class="requestButtons" style="height: 15%">
+            <button id="button1"  class="button button-positive  request_visit_button general-btn-font-color general-btn-bg-style" style="width: 33%; height: 100%" ng-click="checkCard()">Call doctor</button>
+        
+        
+            <button id="button3"  class="button button-positive  search_button general-btn-font-color general-btn-bg-style" style="width: 33%;height: 100%" ng-click="searchDocs()">Doctor Search</button>
+            <button id="button2"  class="button button-positive  request_call_button general-btn-font-color general-btn-bg-style" style="width: 33%;height: 100%" ng-click="showLoc()">Home visit</button>
+        </div> -->
+         <div class="rBtns">
+           <button id="button1"  class="btn btnPrimary"  ng-click="checkCard()" >{{"Call the Doctor" |translate}} </button>
+         <button id="button1"  class="btn btnPrimary"  ng-click="searchDocs()" >{{"Search Doctors" |translate}} </button>
+         <button id="button1"  class="btn btnPrimary"  ng-click="showLoc()" > {{"Home Visit" |translate}}</button>
+        </div>
+        <br>
+    </ion-content>
+</ion-view>
+<style>
+    .mapview{
+        background-color: transparent !important;
+    }
+    
+   .rBtns {
+    width: 100%;
+    padding-bottom: -6px;
+    text-align: center;
+    margin-top: -56px;
+    display: inline-flex !important;
+} 
+button.ng-binding {
+    width: 100%;
+    color: #fafafa;
+}
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+   
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size: 109%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+    &.btnSecondary {
+        background-color: #ffffff;
+        color: #1F7EAD;
+    }
+    &.btnPrimary {
+        color: #fff;
+        background: #36af55;
+        background: -moz-linear-gradient(55deg, #36af55 26%, #36af55 26%, #1e7cb0 100%);
+        background: -webkit-linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        background: linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36af55', endColorstr='#1e7cb0',GradientType=1 );
+    }
+}
+.scroll{
+        height: 100%;
+    }
+    </style>

@@ -1,0 +1,34 @@
+<ion-view  id="Login" hide-nav-bar="true" class="login-screen">
+    <ion-content padding="true" class="has-header">
+        <div class="logo-image"></div>
+        <form class="list" id="loginForm" name="loginForm" novalidate>
+            <div class="list">
+                <label class="item item-input item-icon-{{iconFloat}}">
+                    <input type="tel" placeholder="{{'Mobile Number'|translate}}" name="LoginForm[mobile]" ng-model="userdata.mobile" required class="phonebg input" maxlength="14">
+                </label>
+            </div>
+            <div class="list">
+               <label class="item item-input">
+                   <input type="password" placeholder="********&nbsp;&nbsp;&nbsp;&nbsp;" name="LoginForm[password]" ng-model="userdata.password" required class="lockbg input">
+                </label>
+            </div>
+                    <div class="forget-password "><a ui-sref="forgetPassword" class="general-color-gray-font">{{"Forgot Your Password?" |translate}}</a></div>
+       
+            <a id="button3"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-disabled="loginForm.$invalid" ng-click="login()" >{{"Log in" | translate}}</a>
+            
+            
+           
+        </form>
+        <div class="sign-up general-color-gray-font">{{"Don'thave an account?"| translate}}<a ui-sref="signup" class="general-color-orange-font">&nbsp;{{"Sign Up"  | translate}}</a></div>
+        <div class="sign-up general-color-gray-font">{{"Confirm your account" | translate}}<a ui-sref="confirmation" class="general-color-orange-font">&nbsp;{{"Confirmation" | translate}}</a></div>
+       
+          <div id="errorsdialog" title="Errors"></div>
+    </ion-content>
+</ion-view>
+<style>
+    .button.button-positive {
+    border-color: transparent;
+    background-color: #ff7b00;
+    color: #fff;
+}
+</style>

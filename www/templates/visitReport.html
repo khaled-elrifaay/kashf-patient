@@ -1,0 +1,64 @@
+<ion-view title="{{patient_name}}" id="confirmation">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button  ui-sref="menu.map"   class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="req-doc-confirm" >
+        <div>DR. {{doctor_name}}</div>
+        <img src="{{image}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+             <div  class="pullets">Doctor Name: <span class="info">{{doctor_name}}</span></div>
+             <div  class="pullets">Diagnosis: <span class="info">{{diagnoses}}</span></div>
+             <div class="pullets" ng-repeat="item in treatments">
+                 Treatment :<span class="info">{{item.name}}</span>
+                 <br>
+                 <div style="white-space: initial">
+                 Dose : <span class="info">{{item.dose}}</span><br>Duration :<span class="info">{{item.duration}}</span>
+                 </div> 
+             </div>
+            <div class="pullets">
+                investigations :<span class="info" style="white-space: initial" ng-repeat="invest in investigations">{{invest.name}} <span ng-hide="$last">,</span></span>
+                 
+             </div> 
+             <div class="pullets" ng-if="report.message.patientPayment=='0' && payment_type=='1'">
+                 <p style="color: red;">You not pay kashf fees ,You will be deactivated, to be active
+                    Pay kashf fees.(Bank account number)
+                    Send photo to kashf email to confirm the deposit. </p>
+                 
+             </div> 
+             
+             <div class="pullets" ng-if="notes!=''">Notes</div>
+
+            <div ng-if="notes!=''"> 
+                <textarea ng-model="notes" name="notes"   class="text-area" disabled>
+{{notes}}
+                </textarea>        </div>
+            
+            <!--<div  class="pullets">Fees: <span class="info">{{doctor_rate}}</span></div>-->
+            
+            <center>
+            <div>
+                 <div class="pullets">
+            Please Review This Doctor
+        </div>
+        <form name="reviewDoctor" id="reviewDoctor">
+            <ion-list >
+            
+                <div>
+                    <ionic-ratings  ratingsobj='ratingsObjectsec'></ionic-ratings>
+                </div>
+            </ion-list>
+
+        </form>
+       <button  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="reviewDoctor.$invalid"  ng-click="reviwDoctor(ratingsObject.rating)">review</button>
+    
+        </div>
+            </center>
+        <br>
+        
+    </ion-content>
+</ion-view>

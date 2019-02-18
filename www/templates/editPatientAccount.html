@@ -1,0 +1,100 @@
+<ion-view title="Edit Account" id="editAccountpage" cache-view="false">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="settings" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="has-header container">
+        <form class="list" id="editsignupForm" name="editsignupForm" novalidate>
+            <ion-list>
+                <div class="row row-stretch"> <label class="item-assertive col">Full Name</label></div>
+                <div class="row row-stretch">
+                    <div class="col">
+                        <label class="item item-input">
+                            <span class="input-label" />First Name</span>
+                        <input type="text" placeholder="" name="User[first_name]" ng-model="patientData.firstName"  required  >
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="item item-input">
+                            <span class="input-label" />Last Name</span>
+                            <input type="text" placeholder="" name="User[last_name]" ng-model="patientData.lastName" required >
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row row-stretch ">
+                    <div class="col">
+                        <label class="item item-input ">
+                            <span class="input-label" />Email</span>
+                            <input type="email" placeholder="" name="User[email]" ng-model="patientData.email" required >
+                        </label>
+                    </div>
+                </div>
+                <div class=" row row-stretch">
+                    <div class="col">
+                        <label class="item item-input">
+                            <span class="input-label" />Gender</span>
+                            <select name="Patient[gender]" ng-model="patientData.gender">
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label class="item item-input">
+                            <span class="input-label" />Language</span>
+                        <select name="User[language]" ng-model="patientData.languge">
+                                <option value="en">English</option>
+                                <option value="ar">Arabic</option>
+                            </select>
+                        </label>
+                    </div>
+
+                </div>
+                
+                <div class=" row row-stretch">
+                    <label class="item item-input">
+                    <span class="input-label" >Date of Birth</span>
+                    <input type="date" id="patient_birth_date" name="Patient[date_of_birth]" value="{{birth_date}}" >
+                </label>
+                </div>
+                
+                        <label for="allergiesSelect"> Allergies </label>
+                            <div name="allergies" id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="allergies"
+                                 output-model="outputAllergiesList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                 ng-model="outputAllergiesList"
+                                 
+                                 >
+                            </div>
+                        <label for="diseasesSelect"> diseases </label>
+                            <div name="diseases" id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="diseases"
+                                 output-model="outputDiseasesList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                 ng-model="outputDiseasesList"
+                                 name ="diseases"
+                                 >
+                            </div>
+
+            </ion-list>
+
+          
+            <button  id="edditpatient_signup"  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="editsignupForm.$invalid"  ng-click="edit(patientData,outputAllergiesList, outputDiseasesList)">Edit</button>
+
+            <!--<input name="id" type="hidden" ng-model="patientData.id" value="{{patientData.id}}"/>-->
+        </form>
+        <div id="errorsdialog" title="Errors"></div>
+    </ion-content>
+</ion-view>

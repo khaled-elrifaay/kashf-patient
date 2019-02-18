@@ -1,0 +1,122 @@
+<ion-view title="{{'Visit Request' | translate}}" id="page3" cache-view="false" scroll-content ionic-scroll>
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button  ui-sref="menu.home"  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content  class="has-header container center scroll-content ionic-scroll has-footer" style="text-align: center" >
+<center>
+    <div style="" class="small-title">
+
+            {{"FOR" | translate}}<br></div></center>
+        <div class="styledselectionclasic">
+            <select class="styledselectionclasic" onchange="pidFn()" id="pid">
+                <option  ng-repeat="option in patientsList" value="{{option.main.id}}"   >{{option.main.name}}</option>
+            </select>
+        </div>
+
+
+        <div class="item header" >
+            {{"Doctor's Information" | translate}}
+        </div><center>
+            <div style="" class="small-title">
+            
+            {{"Gender" |translate}}<br></div></center>
+        <div class="styledselectionclasic">
+            <select class="styledselectionclasic" onchange="genderFn()" id="gender">
+                <option selected value="0"> {{"Any" | translate}} </option>
+                <option value="2"> {{"Male" | translate}} </option>
+                <option value="1"> {{"Female" | translate}} </option>
+            </select>
+        </div>  <br><center>
+                <div style="" class="small-title">
+                    
+                    {{"SPECIALTY GRADE" | translate}}<br></div></center>
+        <div class="styledselectionclasic">
+            <select class="styledselectionclasic" onchange="gradeFn()" id="grade">
+                <option selected value="0"> {{"Any" | translate}} </option>
+                <option  ng-repeat="option in grade" value="{{option.id}}">{{option.grade_name}}</option>
+            </select>
+        </div>
+
+        
+        <div class="item header">
+            {{"Doctor's Speciality" | translate}}
+        </div>
+
+        <ion-list>
+            <div ng-repeat="group in specialization" style="width:100%;max-width: 100%;overflow: hidden;border-bottom: solid 1px #f5f5f5;border-bottom-width: 100%" >
+                <ion-item  ng-class-odd="'specsmain specsodd'" ng-class-even="'specsmain specseven'"
+                           ng-click="toggleGroup(group)"
+                           ng-class="{active: isGroupShown(group)}" style="border-bottom: solid 3px #f5f5f5;">
+                    <table style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;" >
+                        <tr>
+                            <td style="vertical-align: middle;max-width:70%;width: 70%;overflow: hidden" class="spe_item">
+                                <div style="overflow: hidden;flex: 0 1 auto;">
+                                    &nbsp;{{group.name}}
+                                </div>
+                            </td>
+                            <td style="vertical-align: middle;flex: 0 1 auto;overflow: hidden" class="spe_icon">
+                                <div>
+                                    <i style="" class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-right'" ng-if="en_user_lang">
+                                        
+                                    </i>
+                                    <i style="" class="icon" ng-class="isGroupShown(group) ? 'ion-chevron-down' : 'ion-chevron-left'" ng-if="ar_user_lang">
+                                        
+                                    </i>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+                </ion-item>
+                <ion-item class="item-accordion"
+                          ng-repeat="item in group.min"
+                          ng-show="isGroupShown(group)" ng-click="specFn(item.id,group.name,item.name)" style="background-color: #f0f0f0;border-bottom: solid 3px #f5f5f5;">
+                    
+                    <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                            <td style="text-align: left;vertical-align: middle;flex: 0 1 auto;overflow: hidden;min-width: 20%"></td>
+                        <td style="text-align: left;vertical-align: middle;max-width:70%;width: 70%;overflow: hidden;min-width: 70%"><div style="flex: 0 1 auto;overflow: hidden;">{{item.name}}</div></td>
+                    <td style="text-align:right;vertical-align: middle;flex: 0 1 auto;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon" ng-class="item.id == spec ? 'ion-checkmark' : ''"></i></td>
+                        </tr></table>
+                </ion-item>
+            </div>
+        </ion-list>
+        <!--<br><br>-->
+
+<!--        <br><br><center>
+            <button ng-click="search()" style="text-align: center;width:90%;height: 85px;color: #fff;background-color: #ff7b00;border: none">SEARCH</button>
+        </center>
+        <br><br><br><br>-->
+        
+    </ion-content>
+    <div class="bar bar-footer search_button">
+       <button ng-click="search()" style="text-align: center;width:90%;height: 85px;color: #fff;background-color: #ff7b00;border: none">{{"SEARCH" |translate}}</button>
+    </div>
+
+</ion-view>
+
+
+<style>
+    .specsmain {
+        color:#6e6e6e;
+        border-bottom: solid 1px #e6e6e6;
+    }
+    .specssub{
+        color:#737373;
+    }
+    .specsodd {
+        background-color: #dedede;
+    }
+
+    .specseven {
+        background-color: #e6e6e6;
+    }
+
+
+</style>
+

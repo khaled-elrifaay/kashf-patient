@@ -1,0 +1,827 @@
+@font-face {
+    font-family: AirStripArabic;
+    src: url(fonts/AirStripArabic.ttf);
+}
+@font-face {
+    font-family: AraHamah;
+    src: url(fonts/AraHamah1982-Regular.ttf);
+}
+@font-face {
+    font-family: HELVETICAITALIC;
+    src: url(fonts/HELVETICA_NEUE_CE_56_ITALIC.TTF);
+}
+@font-face {
+    font-family: HELVETICAROMAN ;
+    src: url(fonts/HELVETICA_NEUE_CE_55_ROMAN.ttf);
+}
+@font-face {
+    font-family: HELVETICABOLDITALIC ;
+    src: url(fonts/HELVETICA_NEUE_CE_76_BOLD_ITALIC.TTF);
+}
+@font-face {
+    font-family: HELVETICABOLD ;
+    src: url(fonts/HELVETICA_NEUE_CE_75_BOLD.TTF);
+}
+
+
+a {
+    font-family: AraHamah;
+}
+a.button{
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+.first-screen{
+    background-color: #00366b;
+    background-image:url("images/background.png");
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+.first-screen ion-content{
+    padding-top: 15%;
+}
+.first-screen-logo{
+    text-align: center;
+}
+.first-screen-buttons{
+    padding-top: 30%;
+    width: 250px;
+    margin: auto;
+}
+.first-screen-buttons a{
+    border-radius: 40px;
+    font-size: 3em;
+    padding: 15px;
+}
+.no-border{
+    border: none;
+}
+.login-screen{
+    background-color: #00366b; 
+}
+.logo-image{
+    width: 135px;
+    height: 152px;
+    margin: auto;
+    background-image:url("images/name-logo.png");
+    background-repeat: no-repeat;
+}
+.login-screen ion-content{
+    padding-top: 15%;
+}
+.login-screen #loginForm{
+    padding: 10% 5% 0 5%;
+}
+.login-screen label{
+
+
+    border-radius: 10px !important;
+    ;
+}
+.login-screen label input{
+    font-family: AraHamah;
+    font-size: 1.5em;
+    text-align: center !important;
+    color:#939393 !important;
+    height: 50px;
+}
+
+.login-screen a.button-link{
+    font-family: AraHamah;
+    padding: 10px;
+    background-color: #00aae2;
+    color: #f8f8f8 !important;
+    font-size: 2.5em;
+    border-radius: 10px !important;
+}
+.login-screen .forget-password{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login-screen .forget-password a{
+    color: #ffffff;
+    font-size: 1.5em;
+    padding-top: 5px;
+}
+
+.login-screen .sign-up{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+.login-screen .sign-up a{
+    color: #00caf2;
+    font-size: 1.5em;
+    padding-top: 5px;
+}
+.header{
+    padding: 26px;
+    text-align: left;
+    background-color: #00a7cc;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.specialization-list:nth-child(odd){
+    background-color: #dedede;
+}
+.specialization-list:nth-child(even){
+    background-color: #e8e8e8;
+}
+.patient-list .item-radio{
+    padding: 25px;
+
+}
+.patient-list span{
+    font-size: 1.2em;
+    color: #282828; 
+}
+.specialization-list{
+    padding: 25px;
+}
+.specialization-item{
+    padding: 13px;
+    font-size: 1.2em;
+    color: #282828;
+}
+.specialization-item.bold{
+    color: #00467e;  
+}
+.bold{
+    font-weight: bold;
+}
+.sub-item{
+    color: #00467e;
+    text-transform: uppercase;
+}
+.confirm-heder{
+    text-align: center;
+    padding: 45px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+}
+body {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+.ionic_ratings .icon {
+    font-size:50px;
+}
+.doctor-rating .ionic_ratings .read_only {
+    pointer-events:none !important;
+}
+.doctor-rating .ionic_ratings .icon {
+    font-size:20px;
+}
+.header-item{
+    text-transform: uppercase;
+}
+.mynavbar{
+    /*height: 100px !important;*/
+
+}
+.list_item{
+    color :#00467e;
+}
+.doctor-name{
+    float: left;
+    font-family:HELVETICABOLD;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #ff7b00;
+}
+.doctor-fess{
+    font-family:HELVETICABOLD;
+    float: left;
+    color: #ff7b00;
+}
+.doctor-title{
+    font-family:HELVETICAROMAN;
+    font-weight:700; 
+    margin-top: 7px;
+    text-transform: uppercase;
+    color:#6e6e6e;
+
+}
+.doctor-rate{
+    font-family:HELVETICABOLD;
+    float: left;
+    color:#6e6e6e;
+}
+.doctor-distance{
+    font-family:HELVETICAROMAN;
+    float: left;
+    color:#6e6e6e;
+}
+.header-list{
+    font-family:HELVETICAROMAN;
+    text-transform: uppercase;
+    font-size: 1.5em
+}
+.patient-img{
+    float: left;
+    margin-right: 5px
+}
+.patient-img img{
+    width:75px;
+    height:75px;
+    /*padding-bottom: 10px*/
+}
+.settings{
+    padding-top: 25px;
+   /* background-image: url('images/test.png');*/
+    background-repeat: no-repeat;
+}
+.patient-main-img{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.patient-name{
+    float: left;
+    padding-top: 23px;
+    color: #2d2d37;
+    font-size: 1.1em;
+    font-family: HELVETICAROMAN;
+    text-transform: capitalize;
+    margin-left: 10px;
+}
+
+.edit-patient{
+    float: right;
+    padding-top: 20px
+}
+.main-name{
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+}
+.patient-list-title{
+    margin-left: 26px;
+    margin-bottom: 10px;
+    color: #00467e;
+    font-family: HELVETICAROMAN;
+}
+.patient-action{
+    overflow: hidden; 
+}
+.patient-action-image1{
+    float: left;
+    margin-left: 25px
+}
+.patient-action-title{
+    float: left;
+    padding-top: 15px;
+    margin-left: 15px;
+    color:#ffffff;
+    font-family: HELVETICAROMAN;
+    font-size: 1.3em;
+}
+.patient-action-image2{
+    float: right;
+    margin-top: 20px;
+}
+.patient-item{
+    background-color:#00aae2!important; 
+}
+
+.patient-item2{
+    background-color:#00467e!important;
+
+}
+
+.menu-item{
+    float: left;
+    font-family: HELVETICAROMAN;
+    font-size: 1.3em;
+    color: #22222e;
+}
+.menu-content .odd a{
+    background-color: #dedede !important;
+}
+.menu-content .even a{
+    background-color: #e8e8e8 !important;
+}
+.menu-content .menu-settings a{
+    background-color: #0085be !important;
+}
+.menu-content .menu-settings{
+    background-color: #0085be !important;
+}
+.doctor-map-data{
+    padding: 10px;
+    background-color: black;
+
+}
+.doctor-map-data .doctor_data{
+    color: white;
+    font-family: HELVETICAROMAN;
+    font-size: 1.3em;
+}
+.time-container{
+    font-family: HELVETICAROMAN;
+    font-size: 1.3em;
+    color :#ffffff;
+
+}
+.error-message{
+    color: red;
+}
+
+.form-container span{
+    color: #1fbad6;
+    font-family: HELVETICAROMAN;
+}
+
+input.error {
+    color: red !important;
+    /*margin-right: 176px;*/
+
+}
+.form-container {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    background-color: #f6f6f6;
+    background-image: url('images/test.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+.form-container .image-wrapper{
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+button.ng-binding {
+    width: 100%;
+    color: #1fbad6;
+}
+.multiSelect-wrapper {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    padding: 17px;
+    color: #1fbad6;
+    font-family: HELVETICAROMAN;
+}
+
+.multiSelect-wrapper .multiSelect .caret{
+    border-top: 4px solid #1fbad6 !important;
+}
+.form-container a{
+    font-family: HELVETICAROMAN;
+    font-size: 30px;
+}
+.ui-widget-content{
+    border :red !important ;
+}
+.errorTxt{
+    color:red;
+}
+.bar-header {
+    background-color: #00467e!important;
+}
+.bar-stable .button.button-icon {
+    color: #fff!important;
+}
+
+.bar.bar-stable .title {
+    color: #fff !important;
+}
+.button.back-button.buttons.button-clear.header-item{
+    color :#fff !important;
+}
+
+
+
+
+
+/*************************************/
+
+/*.scroll {
+    height: 100%;
+}
+ 
+#map {
+    width: 100%;
+    height: 100%;
+}
+.map{
+    top:100;
+}*/
+
+.registration_form{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #f6f6f6;
+    background-image: url('images/test.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.registration_form label{
+    color: #1fbad6;
+}
+.registration_form select{
+    color: #939393;
+}
+
+.registration_form input{
+    color: #939393;
+}
+
+.registration_form #submit{
+    background-color: #1fbad6;
+}
+
+.registration_form_title .img-responsive {
+    width: 100px;
+    margin: 0 auto;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1fbad6;
+}
+
+.registration_form_title .title{
+    margin: 0 auto;
+}
+
+
+
+
+.registration_form .tooltip-inner{
+    background-color: red !important; 
+}
+.specialization-image{
+    loat: left;
+    margin-right: 5px;
+    width: 55px;
+    height: 55px;
+    background-color: #00aae2;
+    border-radius: 50%;
+    background-image: url('http://dev.kashfapp.zadsolutions.com/uploads/icon-heart.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#side-menu21{
+    display: none;
+}
+
+
+
+.button.button-cancel-request {
+
+    border-color: transparent;
+    background-color: #02afe3;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 32px;
+    min-width: 52px;
+    min-height: 67px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    line-height: 62px;
+    cursor: pointer;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-color: transparent;
+    color: #fff;
+
+}
+
+.button.button-cancel-request:hover {
+
+
+    background-color: #02afe3;
+
+}
+
+
+.styledselectionclasic{
+    padding-bottom: 10px;
+
+}
+select.styledselectionclasic {
+    min-width: 90%;
+    max-width: 90%;
+    height:60px;
+    max-height:60px;
+    /* styling */
+    background-color: white;
+    border: solid 1px #888;
+    border-radius: 1px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+    /* reset */
+
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+/* arrows */
+
+select.styledselectionclasic {
+
+    /* background-position:
+       calc(100% - 20px) calc(1em + 2px),
+       calc(100% - 15px) calc(1em + 2px),
+       100% 0;*/
+    background-position:98% center;
+    /*background-size:10px 10px;*/
+    background-repeat: no-repeat;
+    background-color:#fff;
+    background-image: url('images/selectionarrow.png');
+}
+
+select.styledselectionclasic {
+    /*background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        100% 0;*/
+    background-position:98% center;
+    /*  background-size:10px 10px;*/
+    background-repeat: no-repeat;
+    background-color:#fff;
+    background-image: url('images/selectionarrow.png');
+}
+
+
+.ion-nav-bar{
+    background-color:#00a6ce !important;
+}
+ion-header-bar{    background-color:#00a6ce !important;
+}
+
+.ion-header-bar{    background-color:#00a6ce !important;
+} 
+.bar-header{background-color:#00a6ce !important;
+            font-weight: bolder;}
+ion-view{
+    /*background-color: #f5f5f5 !important;*/
+    background-color:  #f2f2f4 !important;
+
+}
+.docto-list-text-big{
+
+    color:#ff7b00;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.docto-list-spec {
+    background-color:#f2f2f2 ;
+    color:#787878;
+    text-align: center;
+    font-family:HELVETICABOLD;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+.req-doc-confirm{
+    color:#707070;
+    font-family: HELVETICAROMAN;
+    text-align: center;
+    font-size: 150%;
+    text-transform: uppercase;
+    padding: 20px 20px 20px 20px;
+    font-weight: bolder !important;
+
+
+}
+.req-doc-confirm .pullets{
+    color:#707070;
+    font-size: 70% !important;
+    padding-top: 10px !important;
+}
+
+.req-doc-confirm .info{
+    color:#919191;
+    font-size: 99% !important;
+    font-weight: bolder !important;
+
+}
+
+.req-doc-confirm .rounded-img{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color:#707070;
+    border-radius:65px;
+    border: 5px solid #c2c2c2;
+    max-height: 100px;
+    max-width: 100px;
+    width:130px;
+    height: 130px;
+}
+.req-doc-confirm .danger {
+    background-color: #e32417 !important;
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+    font-size: 70%;
+    width:45%;
+    border-radius:0 !important; 
+    float:left;
+
+}
+.req-doc-confirm .success{
+    /*background-color: #ff7c00 !important;*/
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+    font-size: 70%;
+    width:45%;
+    border-radius:0 !important;
+    float:right;
+}
+.req-doc-confirm .spearator {
+    width:2%;
+    min-width: 2%;
+    height: 1px;
+    min-height: 1px;
+    float:left;
+}
+.req-doc-confirm .radio {
+    height:20px;
+    width:20px;
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-left: 10px;
+}
+.req-doc-confirm .text-area{
+    width:100%;
+    min-height:150px;
+    overflow:auto;
+    resize:none;
+    position:relative;
+    -moz-user-select: text !important;
+    -webkit-user-select: text !important;
+    -ms-user-select: text !important; 
+    font-size: 20px !important;
+    color:#707070;
+    font-family: HELVETICAROMAN;
+}
+
+.login-screen input {
+    vertical-align: middle;
+    padding: 7px 5px 5px 4%;
+    text-align: center;
+    font-family: HELVETICAROMAN
+}
+
+.login-screen .phonebg{
+    background:url("images/login-phonebg.png") no-repeat 3% center; 
+    ;
+
+}
+
+.login-screen .lockbg{
+    background:url("images/login-lockbg.png") no-repeat 3% center; 
+
+}
+
+.login-screen{
+    background:url("images/login-Pattern.jpg") repeat-x left bottom; 
+    background-size: auto 40%;
+    background-attachment: fixed;
+
+}
+.login-screen {
+    font-family: HELVETICAROMAN;
+    color : #707070 !important;
+}
+.general-color-orange-font {
+    color:#f76902 !important;
+}
+.general-color-gray-font {
+    color:#707070 !important;
+}
+.general-btn-bg-style {
+    background-color: #ff7c00 !important;
+}
+.general-btn-font-color{
+    color: #f7f7f7 !important;
+    font-family: HELVETICAROMAN;
+}
+
+.login-screen a{
+    text-decoration: none;
+}
+
+.odd {
+    color:#6e6e6e !important;
+    background-color: #dedede !important;
+}
+.even {
+    color:#6e6e6e !important;
+    background-color: #e6e6e6 !important;
+}
+
+.list-with-icon{
+    padding: 0px;
+    height: 65px;
+    vertical-align: middle;
+}
+.list-with-icon table{
+    width:100%;
+    border: none;
+    border-spacing:0px;
+    border-collapse: collapse;
+}
+.list-with-icon .icon-style-green{background-color: #00cf4f}
+.list-with-icon .icon-style-red{background-color: #e32417}
+.list-with-icon .icon-style-orange{background-color: #ff7b00}
+.list-with-icon .icon-style{
+    vertical-align: middle;
+    width:60px;
+    color:#fff;
+    text-align:center;
+    text-align: center;
+    font-size:28px;
+    font-weight:bolder;
+    max-width: 60px;
+    overflow: hidden;
+}
+
+.list-with-icon .text-td-style{
+    vertical-align: middle;
+    white-space: initial;
+}
+
+.list-with-icon .text-style{
+    padding-left:10px;
+}
+.list-with-icon .general-color-gray-font{
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.list-with-icon .general-color-orange-font{
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.menu-icons{
+    display: inline;padding-left: 5px;padding-right: 8px;
+    max-width:10px;
+    font-size: 23px;
+}
+.menuclass .rounded-img{
+ border: 5px solid #c2c2c2;
+    border-radius: 30px;
+    color: #707070;
+    height: 60px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    max-height: 60px;
+    max-width: 60px;
+    width: 60px;
+}
+.request_call_button{
+    float: right ;
+    height: 100px ;
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+}
+.request_visit_button{
+    float: left ;
+    height: 100px ;
+    font-family: HELVETICAROMAN;
+    text-transform: uppercase;
+}
+.bar-footer{
+    height: 99px !important;
+    
+}
+.search_button{
+    justify-content: center;
+}
+.has-footer { bottom: 99px; }
+.terms {
+   font-size: 1.5em;
+   color:#1fbad6;
+       
+}
+.terms span a {
+   font-size: 1em ; 
+}
+
+#payment .input-label{
+    width: 45%;
+}

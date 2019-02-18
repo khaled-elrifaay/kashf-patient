@@ -1,0 +1,32 @@
+<ion-view title="map" id="doctorMapPage" cache-view="false" style='background-color: transparent !important;' class="mapview" >
+       <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content  class="has-header padding">
+        <div class="doctor-map-data">
+            <div ng-if="data.message.doctor_syndicate_number!= ''"><p style="color:white">Please review the doctor's syndicate registration identity card before starting the visit" +  "the syndicate registration number of your doctor is  {{doctor_syndicate_number}}</p></div>
+            <div style="float: left;margin-right:5px;background-color: transparent !important;"> <img style="width:100%;height:100%;padding-bottom: 10px" src="http://dev.kashfapp.zadsolutions.com/uploads/doctor-icon-dark.png"></div>
+            <div>
+                <div class="doctor_data" style="overflow: hidden;">
+                    <div style="float: left" >DR: {{doc_name}}</div>
+                    <div  style="float: right;">Fees: {{fees}} LE</div>
+                </div>
+                <div class="doctor_data">Doctor is {{distanc}}km away</div>
+                
+            </div>
+
+        </div>
+        <div style="width:100%;height:60%" id="map_canvas2"></div> 
+     <!--    <div style="text-align: center;">
+            <div class="" style="color: #919191;text-align: center;font-size: 15px;font-weight: bold;line-height: 50px;">You can cancel the visit during : {{disableCancelBtnTime}} Minutes</div>
+
+           <button ng-click="CancelVisitRequest()"  ng-disabled="disableCancelBtn" class="button button-block button-positive button-cancel-request general-btn-font-color general-btn-bg-style">Cancel</button>
+           
+        </div> -->
+        
+    </ion-content>
+</ion-view>
+<style>
+    .mapview{
+        background-color: transparent !important;
+    }
+    </style>

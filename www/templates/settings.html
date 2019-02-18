@@ -1,0 +1,135 @@
+<ion-view title="settings" id="familyMember" cache-view="false">
+    
+     <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="menu.map" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    
+    
+
+    <ion-content  class="has-header  settings ">
+        <div class="patient-main-img" ><img  src="img/login-image.png"></div>
+        <div class="main-name">{{mainName}}</div>
+        <div class="patient-list-title">FAMILY MEMBER DATA</div>
+        <!--<a ui-sref="AddFamilyMember">Add Member</a>-->
+<!--        <div class="card" ng-repeat="item in patientsList" ng-click="">
+            <div class="item item-text-wrap" >
+                <div style="float: left;margin-right: 5px"> <img style="width:100px;height:100px;padding-bottom: 10px" src="http://192.168.1.110/zad/kashfApp/admin/uploads/download.jpg"></div>
+                <div>{{item.name}}</div>
+            </div>
+        </div>-->
+        <ion-list>
+            
+            <ion-item  ng-repeat="item in patientsList" class="patient-list" ng-click="editPatient('{{$index}}')">
+                <div  class='patient-img'> <img  src="img/login-image.png"></div>
+                <div>
+                    <div style="overflow: hidden;">
+                        <div  class="patient-name"> {{item.main.name}} </div>
+                        <div class="edit-patient"><img  src="img/edit.png"></div>
+                    </div>
+                </div>
+                
+            </ion-item>
+        </ion-list>
+        
+        
+            <ion-list>
+                <h4>select app language</h4>
+                <br><br>
+        <div class="rBtns">
+           <button id="button1"  class="btn btnPrimary"  ng-click="En()" >English</button>
+         <button id="button1"  class="btn btnPrimary"  ng-click="Ar()" >عربي </button>
+        </div>
+
+            </ion-list>
+
+<br><br>
+
+
+
+
+
+
+
+<ion-list>
+            <ion-item   class="list_item patient-item"  ng-click="changePassword()" style="background-color: #00a7cc !important;color:#fff !important;" >
+
+
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                        <td style="text-align: left;vertical-align: middle;width:10%;max-width:10%;overflow: hidden;min-width: 20%"><li class="ion-locked menu-icons"></li></td>
+                    <td style="text-align: left;vertical-align: middle;max-width:80%;width: 80%;overflow: hidden;min-width: 70%"><div style="width:100%;overflow: hidden;max-width:100%;">CHANGE PASSWORD</div></td>
+                    <td style="text-align:right;vertical-align: middle;max-width:10%;width:10%;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon ion-chevron-right"></i></td>
+                    </tr></table>
+            </ion-item>
+        </ion-list>
+
+
+<ion-list>
+            <ion-item   class="list_item patient-item" ng-click="addFamilyMember()" style="background-color: #ff7b00 !important;color:#fff !important;" >
+
+
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                        <td style="text-align: left;vertical-align: middle;width:10%;max-width:10%;overflow: hidden;min-width: 20%"><li class="ion-ios-plus-outline menu-icons"></li></td>
+                    <td style="text-align: left;vertical-align: middle;max-width:80%;width: 80%;overflow: hidden;min-width: 70%"><div style="width:100%;overflow: hidden;max-width:100%;">ADD FAMILY MEMBER</div></td>
+                    <td style="text-align:right;vertical-align: middle;max-width:10%;width:10%;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon ion-chevron-right"></i></td>
+                    </tr></table>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item   class="list_item patient-item" ng-click="signOut()" style="color:#fff !important;background-color: #e32417 !important;f" >
+
+
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse; color:#fff !important;background-color: #e32417 !important;"><tr>
+                        <td style="text-align: left;vertical-align: middle;width:10%;max-width:10%;overflow: hidden;min-width: 20%"><li class="ion-android-exit menu-icons"></li></td>
+                    <td style="text-align: left;vertical-align: middle;max-width:80%;width: 80%;overflow: hidden;min-width: 70%"><div style="width:70%;overflow: hidden;max-width:70%;">SIGNOUT</div></td>
+                    <td style="text-align:right;vertical-align: middle;max-width:10%;width:10%;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon ion-chevron-right"></i></td>
+                    </tr></table>
+            </ion-item>
+        </ion-list>
+        <div id="confirmdialog" title="confirmation">
+            
+        </div>
+    </ion-content>
+</ion-view>
+
+<style>
+    
+  .rBtns {
+    width: 100%;
+    padding-bottom: -6px;
+    text-align: center;
+    margin-top: -56px;
+    display: inline-flex !important;
+} 
+button.ng-binding {
+    width: 100%;
+    color: #fafafa;
+}
+.btn {
+    display: inline-block;
+    padding: 7px 20px;
+   
+    box-shadow: 0 4px 15px 1px rgba(0,0,0,0.55);
+    font-size: 109%;
+    font-family: Verdana, Geneva, Cairo, sans-serif;
+    width: 104px;
+    background-color: #ff7b00;
+    color: white;
+    border-radius: 10px;
+    &.btnSecondary {
+        background-color: #ffffff;
+        color: #1F7EAD;
+    }
+    &.btnPrimary {
+        color: #fff;
+        background: #36af55;
+        background: -moz-linear-gradient(55deg, #36af55 26%, #36af55 26%, #1e7cb0 100%);
+        background: -webkit-linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        background: linear-gradient(55deg, #36af55 26%,#36af55 26%,#1e7cb0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36af55', endColorstr='#1e7cb0',GradientType=1 );
+    }
+}
+
+</style>

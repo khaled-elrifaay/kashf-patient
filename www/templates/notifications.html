@@ -1,0 +1,36 @@
+
+<ion-view title="Notifications" id="page9">
+        <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="menu.map"  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+        <ion-content  class="has-header container">
+            <ion-list>
+            <ion-item  ng-repeat="item in notificationmenu" class="list_item list-with-icon" ng-click="notificationsmenudetails('{{$index}}')" ng-class-odd="'odd'" ng-class-even="'even'">
+                <table class="list-with-icon">
+                    <tr><td class="icon-style {{(item.message_type == 1)? 'icon-style-green' :((item.message_type == 0)? 'icon-style-red' : 'icon-style-orange') }}">
+                        <li ng-hide='{{item.message_type != 1}}' class="ion-checkmark" style="display: inline;"></li>
+                        <li ng-hide='{{item.message_type != 3}}' class="ion-plus" style="display: inline;"></li>
+                        <li ng-hide='{{item.message_type != 0}}' class="ion-close" style="display: inline;"></li>
+                        <li ng-hide='{{item.message_type != -1}}' class="ion-close" style="display: inline;"></li>
+                        <li ng-hide='{{item.message_type != 4}}' class="ion-close" style="display: inline;"></li>
+                    </td><td class="text-td-style">
+                        <div  class="text-style general-color-gray-font" ng-hide='{{item.message_type != 1}}' ><span class="general-color-orange-font">DR. {{item.doctor_name}}</span><br>
+                            had accepted the request</div>
+                                    <div  class="text-style general-color-gray-font" ng-hide="{{item.message_type != 3}}"><span class="general-color-orange-font">DR. {{item.doctor_name}}</span><br> Added visit details </div>
+                                    <div  class="text-style general-color-gray-font" ng-hide='{{item.message_type != -1}}' >Your recent call request had been rejected please press to request another</div>
+                                    <div  class="text-style general-color-gray-font" ng-hide='{{item.message_type != 0}}' >Your recent visit request had been rejected please press to request another</div>
+                        </td>
+                        <td ng-hide="item.message_type != 1"><small>*Please review the doctor's syndicate registration identity card before starting the visit <br>the syndicate registration number of your doctor is <b> {{item.syndicate_id}}</b></small></td>
+                    <tr>        
+                </table>
+            </ion-item>
+                </ion-list>
+        </ion-content>
+
+</ion-view>
+
+
+

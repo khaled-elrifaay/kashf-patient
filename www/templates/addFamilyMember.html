@@ -1,0 +1,93 @@
+<ion-view title="{{'Add Family Member' | translate }}" id="addFamilyMemberPage">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="form-container">
+         <div class="image-wrapper"><img src="img/login-image.png"></div>
+        <form class="list" id="addFamilyMember" name="addFamilyMember" novalidate>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">{{"First Name" | translate}}</span>
+                    <input type="text" placeholder="" name="Patient[first_name]" ng-model="patientData.firstName"  required  >
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{"Last Name" | translate}}</span>
+                    <input type="text" name="User[last_name]" ng-model="patientData.lastName"required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{"Date of Birth" | translate}}</span>
+                    <!--<input type="text" pick-a-date="date" pick-a-date-options="{ format: 'dd-mm-yyyy' }" name="Patient[date_of_birth]" ng-model="patientData.birthDay">-->
+
+
+
+                      <input type="hidden"  ion-datetime-picker date value='{{patientData.dateOfBirth| date: "yyyy-MM-dd"}}' name="Patient[date_of_birth]" ng-model="patientData.dateOfBirth"  required>
+<div ion-datetime-picker date ng-model="patientData.dateOfBirth">
+            {{patientData.dateOfBirth| date: "yyyy-MM-dd"}}
+            </div>
+                </label>
+            </div>
+            <div class="list">    
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">{{"Gender" |translate}}</span>
+                    <div class="row">
+                        <div class="col">                            
+                           <ion-radio name="Patient[gender]" class="col" ng-model="patientData.gender" ng-value="'1'" required >{{"Male" | translate}}</ion-radio>
+                        </div>
+                        <div class="col">
+                            <ion-radio name="Patient[gender]" class="col" ng-model="patientData.gender" ng-value="'2'" required>{{"Female" |translate}}</ion-radio>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="list multiSelect-wrapper">
+               <label for="allergiesSelect" >{{"Allergies" |translate}}</label>
+                 
+                        <div name="allergies" id="investigationSelect"             
+                             isteven-multi-select
+                             input-model="allergies"
+                             output-model="outputAllergiesList"
+                             button-label="icon name"
+                             item-label="icon name maker"
+                             tick-property="ticked"
+                             selection-mode="multiple"
+                             ng-model="outputAllergiesList"
+
+                             >
+                        </div> 
+                   
+                 
+            </div>
+            <div class="list multiSelect-wrapper">
+                <label for="diseasesSelect"> {{"Diseases" | translate}} </label>
+                            <div name="diseases" id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="diseases"
+                                 output-model="outputDiseasesList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                 ng-model="outputDiseasesList"
+                                 
+                                 >
+                            </div>
+            </div>
+            
+                
+                        
+                        
+                
+         
+
+            
+            <button  id="edditpatient_signup"  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="(addFamilyMember.$invalid || buttonStatus)"   ng-click="addMember(patientData, outputAllergiesList,outputDiseasesList);">{{"ADD" |translate}}</button>
+
+           
+        </form>
+        <div id="errorsdialog" title="Errors"></div>
+    </ion-content>
+</ion-view>

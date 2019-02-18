@@ -1,0 +1,103 @@
+<ion-view title="{{'Sign Up' | translate}}" id="signup">
+    <ion-content padding="true" class="form-container">
+        <div class="image-wrapper"><img src="img/login-image.png"></div>
+        <form name="signupForm" id="signupForm" novalidate>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">{{"First Name" | translate}}</span>
+                    <input type="text" required name="User[first_name]" ng-model="userdata.FirstName" required >
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">{{"Last Name" | translate}}</span>
+                    <input type="text" name="User[last_name]" ng-model="userdata.lastName"required>
+                </label>
+            </div>
+            <div class="errorTxt"></div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">{{"Mobile" |translate}}</span>
+                    <input type="number" name="User[mobile]" placeholder="" ng-model="userdata.mobile" required>
+
+                </label>
+                
+                <label class="item item-input">
+                    <span class="input-label">{{"Password" | translate}}</span>
+                    <input type="password" name="User[password]" ng-model="userdata.password" required>
+                </label>
+            </div>
+
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">{{"Email" | translate}}</span>
+                    <input type="email" name="User[email]" ng-model="userdata.email" placeholder="example@example.com" required>
+                </label>
+                
+               <!-- <label class="item item-input">
+                    <span class="input-label" >Date of Birth</span>-->
+                 <!--   <input type="text" pick-a-date="date" pick-a-date-options="{ format: 'dd-mm-yyyy' }" name="Patient[date_of_birth]" ng-model="userdata.dateOfBirth" required> -->
+                 <!--   <input type="hidden"  ion-datetime-picker date value='{{userdata.dateOfBirth| date: "yyyy-MM-dd"}}' name="Patient[date_of_birth]" ng-model="userdata.dateOfBirth"  required>
+<div ion-datetime-picker date ng-model="userdata.dateOfBirth">
+            {{userdata.dateOfBirth| date: "yyyy-MM-dd"}}
+            </div>
+
+                </label>-->
+            </div>
+            <!--
+            <div class="list">    
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Gender</span>
+                    <div class="row">
+                        <div class="col">                            
+                            <ion-radio name="Patient[gender]" class="col" ng-model="choice" ng-value="'1'" required >Male</ion-radio>
+                        </div>
+                        <div class="col">
+                            <ion-radio name="Patient[gender]" class="col" ng-model="choice" ng-value="'2'" required>Female</ion-radio>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            -->
+<!--            <div class="list">
+               <label class="item item-input item-stacked-label">
+                    <span class="input-label">Credit Card Information </span>
+                    <div class="row">
+                        <div class="col-75">                            
+                            <label class="item item-input">
+                                <input type="number" placeholder="Credit Card Number" id="credit_card_number" name="PatientCreditCard[credit_card_number]"  required >
+                                 
+                            </label>
+                        </div>
+                        <div class="col-25">
+                            <label class="item item-input">
+                                <input type="number" placeholder="cvv" id="credit_card_number" name="PatientCreditCard[cvv]"  required>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="col">
+                            <label class="item item-input">
+                                <span>Expiration Date</span>
+                                 <input type="month"  name="PatientCreditCard[expiration_date]" required >
+                             </label>
+                       </div>
+                    </div>
+                </label>
+                
+            </div>-->
+            <ion-list class="terms">
+               
+                <input type="checkbox" ng-model="reg.terms" value="1" required style="width: 25px; height: 25px" name="terms">{{"I agree to" | translate}}
+                <span><a ui-sref="terms"  style="font-size: .8em;">{{"Terms And Conditions" | translate}}</a></span>
+                
+              </ion-list>
+            
+            <button  id="patient_signup"  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="signupForm.$invalid" ng-disabled="isDisabled" ng-model="isDisabled"  ng-click="signup(reg)">{{"Sign Up" | translate}}</button>
+            
+        </form>
+        
+       
+        <div id="errorsdialog" title="Errors"></div>
+        <div> <a  style="font-size: .8em;" href="tel:0233335530" class="button button-positive">{{"Click Here To Call Support" | translate}} </a></div>
+    </ion-content>
+</ion-view>
